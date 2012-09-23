@@ -1,7 +1,7 @@
 ! to match gnome-terminal "Linux console" scheme
 ! foreground/background
 URxvt*depth: 32
-URxvt*background: rgba:0000/0000/0000/c800
+URxvt*background: rgba:0000/0000/0000/e800
 
 URxvt*foreground: #ffffff
 ! black
@@ -17,8 +17,8 @@ URxvt.color10 : #55FF55
 URxvt.color3  : #AA5500
 URxvt.color11 : #FFFF55
 ! blue
-URxvt.color4  : #0000AA
-URxvt.color12 : #5555FF
+URxvt.color4  : #0000BB
+URxvt.color12 : #9999FF
 ! magenta
 URxvt.color5  : #AA00AA
 URxvt.color13 : #FF55FF
