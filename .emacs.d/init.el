@@ -121,7 +121,6 @@
 ;;default live packs
 (let* ((live-dir (file-name-as-directory "live")))
   (setq live-packs (list (concat live-dir "foundation-pack")
-                         (concat live-dir "colour-pack")
                          (concat live-dir "clojure-pack")
                          (concat live-dir "lang-pack")
                          (concat live-dir "power-pack"))))
@@ -154,12 +153,3 @@
 ;; TODO: Add fortunes back here
 ")))
 )
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(sclang-auto-scroll-post-buffer t)
- '(sclang-eval-line-forward nil)
- '(sclang-help-path (quote ("/Applications/SuperCollider/Help")))
- '(sclang-runtime-directory "~/.sclang/"))
