@@ -6,6 +6,11 @@
 ;; Load bindings config
 (live-load-config-file "bindings.el")
 
+(live-use-packs '(live/foundation-pack
+                  live/cloure-pack
+                  live/lang-pack
+                  live/power-pack))
+
 
 (custom-set-faces
  '(default ((t (:inherit nil
