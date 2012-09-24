@@ -14,4 +14,5 @@ fi
 xcompmgr &
 xset -b
 xbindkeys &
+wmname LG3D
 exec awesome
