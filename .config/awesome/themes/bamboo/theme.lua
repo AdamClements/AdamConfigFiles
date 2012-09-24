@@ -27,15 +27,15 @@ wallpaper4    = sharedthemes .. "/default/background.png"
 wpscript      = home .. "/.wallpaper"
 
 if awful.util.file_readable(wallpaper1) then
-	theme.wallpaper_cmd = { "awsetbg " .. wallpaper1 }
+        theme.wallpaper_cmd = { "awsetbg " .. wallpaper1 }
 elseif awful.util.file_readable(wallpaper2) then
-	theme.wallpaper_cmd = { "awsetbg " .. wallpaper2 }
+        theme.wallpaper_cmd = { "awsetbg " .. wallpaper2 }
 elseif awful.util.file_readable(wpscript) then
-	theme.wallpaper_cmd = { "sh " .. wpscript }
+        theme.wallpaper_cmd = { "sh " .. wpscript }
 elseif awful.util.file_readable(wallpaper3) then
-	theme.wallpaper_cmd = { "awsetbg " .. wallpaper3 }
+        theme.wallpaper_cmd = { "awsetbg " .. wallpaper3 }
 else
-	theme.wallpaper_cmd = { "awsetbg " .. wallpaper4 }
+        theme.wallpaper_cmd = { "awsetbg " .. wallpaper4 }
 end
 
 if awful.util.file_readable(config .. "/vain/init.lua") then
@@ -44,20 +44,20 @@ end
 --}}}
 
 -- {{{ Styles
-theme.font      = "sans 8"
+theme.font      = "Mono 8"
 
 -- {{{ Colors
 theme.fg_normal = "#ffffff"
-theme.fg_focus  = "#ddda9b"
-theme.fg_urgent = "#929392"
+theme.fg_focus  = "#9b9b9b"
+theme.fg_urgent = "#929292"
 --theme.bg_normal = "#434e2c88"
-theme.bg_normal = "#434e2caa"
-theme.bg_focus  = "#0c0d0c88"
-theme.bg_urgent = "#34353488"
+theme.bg_normal = "#0c0c0c88"
+theme.bg_focus  = "#0c0c0c88"
+theme.bg_urgent = "#34343488"
 -- }}}
 
 -- {{{ Borders
-theme.border_width  = "1"
+theme.border_width  = "0"
 --theme.border_width  = "2"
 --theme.border_normal = "#34353488"
 --theme.border_normal = "#2d4113"
@@ -104,7 +104,7 @@ theme.mouse_finder_color = "#CC9393"
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_height = "15"
+theme.menu_height = "10"
 theme.menu_width  = "130"
 -- }}}
 

@@ -7,6 +7,10 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+require("revelation")
+require("eminent")
+
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -202,6 +206,9 @@ globalkeys = awful.util.table.join(
         end),
     awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
+    -- Revelation bindings
+    awful.key({modkey}, "e", revelation),
+
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
@@ -233,15 +240,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-
-    awful.key({ modkey }, "x",
-              function ()
-                  awful.prompt.run({ prompt = "Run Lua code: " },
-                  mypromptbox[mouse.screen].widget,
-                  awful.util.eval, nil,
-                  awful.util.getdir("cache") .. "/history_eval")
-              end)
+    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end)
 )
 
 clientkeys = awful.util.table.join(
@@ -276,6 +275,10 @@ end
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, keynumber do
     globalkeys = awful.util.table.join(globalkeys,
+        awful.key({ modkey }, "b",
+                  function ()
+                        mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+                  end),
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
                         local screen = mouse.screen
@@ -361,6 +364,10 @@ client.add_signal("manage", function (c, startup)
     end
 end)
 
-client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.add_signal("focus", function(c)
+                              c.border_color = beautiful.border_focus
+                           end)
+client.add_signal("unfocus", function(c)
+                                c.border_color = beautiful.border_normal
+                             end)
 -- }}}
