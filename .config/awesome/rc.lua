@@ -177,6 +177,8 @@ for s = 1, screen.count() do
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
     }
+    -- But hide it by default
+    mywibox[s].visible = false
 end
 -- }}}
 
@@ -269,6 +271,7 @@ keynumber = 0
 for s = 1, screen.count() do
    keynumber = math.min(9, math.max(#tags[s], keynumber));
 end
+
 
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it works on any keyboard layout.
