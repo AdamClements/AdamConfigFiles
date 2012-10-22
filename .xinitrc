@@ -11,6 +11,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
+xflux -l 51.5 -g -0.1 &
 xcompmgr &
 xset -b
 xbindkeys &
