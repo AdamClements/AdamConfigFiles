@@ -77,7 +77,7 @@ editor_backup_extension=~
 mcview_eof=
 ignore_ftp_chattr_errors=true
 keymap=
-skin=default
+skin=dark
 
 [Layout]
 message_visible=1
@@ -89,7 +89,7 @@ menubar_visible=1
 free_space=1
 horizontal_split=0
 vertical_equal=1
-left_panel_size=59
+left_panel_size=68
 horizontal_equal=1
 top_panel_size=1
 
@@ -105,7 +105,7 @@ clipboard_store=
 clipboard_paste=
 
 [Colors]
-base_color=
+base_color=0
 xterm=
 color_terminals=
 
