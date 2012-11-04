@@ -98,7 +98,14 @@ globalkeys = awful.util.table.join(
 
     -- Running stuff
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey            }, "r",      function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey            }, "r",      
+              function () 
+                 mywibox[mouse.screen].visible = true
+                 mytimer = timer({ timeout = 10 })
+                 mytimer:add_signal("timeout", function() mywibox[mouse.screen].visible = false end)
+                 mytimer:start()
+                 mypromptbox[mouse.screen]:run() 
+              end),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit)
