@@ -1,7 +1,7 @@
 require("awful.util")
 
 config        = awful.util.getdir("config")
-themedir      = config .. "/themes/bamboo" 
+themedir      = config .. "/themes/thinnest" 
 
 theme = {}
 
