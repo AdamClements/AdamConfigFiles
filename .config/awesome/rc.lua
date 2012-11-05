@@ -88,7 +88,7 @@ globalkeys = awful.util.table.join(
 
     -- Show/hide the wibox
     awful.key({ modkey }, "b", toggle_wibox),
-    
+
     -- Revelation bindings
     awful.key({modkey}, "e", revelation),
 
@@ -98,13 +98,13 @@ globalkeys = awful.util.table.join(
 
     -- Running stuff
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey            }, "r",      
-              function () 
+    awful.key({ modkey            }, "r",
+              function ()
                  mywibox[mouse.screen].visible = true
                  mytimer = timer({ timeout = 10 })
                  mytimer:add_signal("timeout", function() mywibox[mouse.screen].visible = false end)
                  mytimer:start()
-                 mypromptbox[mouse.screen]:run() 
+                 mypromptbox[mouse.screen]:run()
               end),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart),
@@ -117,13 +117,13 @@ root.keys(globalkeys)
 -- Per client bindings and rules
 -------------------------------------------------------------------------------------------------
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
-    awful.key({ modkey,           }, "m",      maximize)
+    awful.key({ modkey,           }, "f",         function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({                   }, "XF86Close", function (c) c:kill()                         end),
+    awful.key({ modkey, "Control" }, "space",     awful.client.floating.toggle                     ),
+    awful.key({ modkey, "Control" }, "Return",    function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey,           }, "o",         awful.client.movetoscreen                        ),
+    awful.key({ modkey, "Shift"   }, "r",         function (c) c:redraw()                       end),
+    awful.key({ modkey,           }, "m",         maximize)
 )
 
 clientbuttons = awful.util.table.join(
