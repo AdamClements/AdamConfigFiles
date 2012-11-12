@@ -15,10 +15,10 @@ fi
 hsetroot -solid "#000000"
 
 # Actually, if we can, make that an animated background!
-background glmatrix &
+#background glmatrix &
 
 # Set the background
-#feh --bg-scale --no-xinerama /home/adam/.config/awesome/themes/bamboo/background.jpg
+feh --bg-scale --no-xinerama /home/adam/.config/wallpapers/earth.jpg
 
 # Improve performance for things doing a lot of pixmap shuffling
 nvidia-settings -a InitialPixmapPlacement=2
