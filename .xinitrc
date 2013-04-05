@@ -38,8 +38,11 @@ xset -b
 # Load in some key binding settings (for volume control etc)
 xbindkeys &
 
-# Load my custom keyboard layout
-xmodmap /home/adam/.Xmodmap
+# Load my custom keyboard layout (if it exists)
+if [ -f /home/adam/.Xmodmap ]
+then
+    xmodmap /home/adam/.Xmodmap
+fi
 
 # Tell everything that we're running looking glass 3d, in the hope that java will play nice
 wmname LG3D
