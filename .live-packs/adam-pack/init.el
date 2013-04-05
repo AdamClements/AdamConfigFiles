@@ -36,3 +36,6 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
+;;; Set a more interesting error underline for nrepl
+(set-face-attribute 'nrepl-error-highlight-face nil :inherit nil :underline '(:color "red4" :style wave))
