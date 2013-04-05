@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $1 in
+  'eve')
+      NUM=+447763362053;;
+  *)
+      echo "Unrecognised contact"; exit;;
+esac
+
+adb shell am start -a android.intent.action.SENDTO -d sms:$NUM --es sms_body "$2" --ez exit_on_sent true
+
+adb shell input keyevent 22
+adb shell input keyevent 66

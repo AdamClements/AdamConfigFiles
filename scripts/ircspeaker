@@ -1,0 +1,4 @@
+#!/bin/bash
+killall ircspeaker
+cd /home/adam/hackday/IrcBots/src
+python2 -m botty.main Interpreter &

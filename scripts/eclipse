@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /home/adam/thirdparty/android/eclipse/
+./eclipse
