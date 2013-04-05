@@ -14,11 +14,17 @@ fi
 # Make sure that the background is solid black, probably unnecessary
 hsetroot -solid "#000000"
 
-# Actually, if we can, make that an animated background!
-background glmatrix &
-
-# Set the background
-#feh --bg-scale --no-xinerama /home/adam/.config/awesome/themes/bamboo/background.jpg
+# Set the background, different for different computers
+case $(uname -n) in
+    glados)
+        # On powerful computers, animated background!
+        background glmatrix &
+        ;;
+    *)
+        # Simple picture by default
+        feh --bg-scale --no-xinerama /home/adam/.config/awesome/themes/bamboo/background.jpg
+        ;;
+esac
 
 # Improve performance for things doing a lot of pixmap shuffling
 nvidia-settings -a InitialPixmapPlacement=2
