@@ -1,41 +1,38 @@
-;; User pack init file
-;;
-;; User this file to initiate the pack configuration.
-;; See README for more information.
-
-;; Load bindings config
 (live-load-config-file "bindings.el")
 
-(live-use-packs '(live/foundation-pack
-                  live/clojure-pack))
-
-
-(custom-set-faces
- '(default ((t (:inherit nil
-                :stipple nil
-                :background "black"
-                :foreground "white"
-                :inverse-video nil
-                :box nil
-                :strike-through nil
-                :overline nil
-                :underline nil
-                :slant normal
-                :weight normal
-                :height 80
-                :width normal
-                :foundry "unknown"
-                :family "DejaVu Sans Mono")))))
-
-
-(set-frame-parameter (selected-frame) 'alpha '(85 85))
-(add-to-list 'default-frame-alist '(alpha 85 85))
-
+;;; Sloppy focus
 (setq mouse-autoselect-window t)
 
+;;; Pressing enter does a reindent too by default
 (global-set-key "\C-m" 'newline-and-indent)
 
+;;; Multiple point editing FTW!
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+
+;;; Set up
+(setq split-height-threshold nil)
+(setq split-width-threshold 160)
+
+;;; Open links in chrome
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
+
+;;; Properly highlight README.md files
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(live-load-config-file "extra-clojure-symbols.el")
+(live-load-config-file "git-gutter-dehorrify.el")
+
+;;; Take the nrepl out of the list of windows to open in other buffers
+(setq same-window-buffer-names
+      (delete "*nrepl*" same-window-buffer-names))
+
+
+;;; Add in extra repositories
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-initialize)
