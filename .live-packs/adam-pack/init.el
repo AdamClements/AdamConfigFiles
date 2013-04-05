@@ -10,9 +10,9 @@
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
-;;; Set up
+;;; Info about at which point I would like the screen to split
+;;; vertically vs horizontally
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
 
