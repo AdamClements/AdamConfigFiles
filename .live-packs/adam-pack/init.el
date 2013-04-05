@@ -7,9 +7,7 @@
 (live-load-config-file "bindings.el")
 
 (live-use-packs '(live/foundation-pack
-                  live/cloure-pack
-                  live/lang-pack
-                  live/power-pack))
+                  live/clojure-pack))
 
 
 (custom-set-faces
@@ -25,12 +23,19 @@
                 :slant normal
                 :weight normal
                 :height 80
-                :width extra-condensed
+                :width normal
                 :foundry "unknown"
                 :family "DejaVu Sans Mono")))))
 
 
-(set-frame-parameter (selected-frame) 'alpha '(90 90))
-(add-to-list 'default-frame-alist '(alpha 90 90))
+(set-frame-parameter (selected-frame) 'alpha '(85 85))
+(add-to-list 'default-frame-alist '(alpha 85 85))
 
 (setq mouse-autoselect-window t)
+
+(global-set-key "\C-m" 'newline-and-indent)
+
+(require 'multiple-cursors)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)

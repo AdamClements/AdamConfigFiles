@@ -33,3 +33,8 @@ URxvt.scrollBar : false
 
 URxvt*font: xft:Monospace:pixelsize=11
 URxvt*boldFont: xft:Monospace:pixelsize=11
+
+URxvt*urgentOnBell : true
+URxvt*secondary-wheel : true
+
+URxvt*termName:xterm
