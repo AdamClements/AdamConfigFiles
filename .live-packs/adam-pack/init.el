@@ -31,11 +31,17 @@
       (delete "*nrepl*" same-window-buffer-names))
 
 
-;;; Add in extra repositories
+;;; Add in extra repositories/packages
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+(setq package-archives
+             '(("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
+
+(defvar my-packages '(latest-clojars))
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 ;;; Set a more interesting error underline for nrepl
 (set-face-attribute 'nrepl-error-highlight-face nil :inherit nil :underline '(:color "red4" :style wave))
