@@ -1,5 +1,5 @@
 (live-load-config-file "bindings.el")
-(live-add-pack-lib "clojure")
+(load "clojure")
 
 ;;; Sloppy focus
 (setq mouse-autoselect-window t)
