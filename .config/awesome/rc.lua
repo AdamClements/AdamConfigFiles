@@ -3,7 +3,6 @@ require("awful.autofocus")
 require("awful.rules")
 require("beautiful")
 require("naughty")
-require("revelation")
 require("eminent")
 
 require("errorhandling")
@@ -12,7 +11,7 @@ require("util")
 -- Theme
 beautiful.init("/home/adam/.config/awesome/themes/thinnest/theme.lua")
 
-terminal = "urxvt"
+terminal = "terminology"
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
