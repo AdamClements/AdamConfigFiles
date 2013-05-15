@@ -31,6 +31,11 @@
 (setq same-window-buffer-names
       (delete "*nrepl*" same-window-buffer-names))
 
+;;; Nrepl jack in with the dev profile by default
+(add-hook 'nrepl-mode-hook
+      '(lambda ()
+         (set-variable 'nrepl-server-command
+                       "lein with-profile dev repl")))
 
 ;;; Add in extra repositories/packages
 (require 'package)

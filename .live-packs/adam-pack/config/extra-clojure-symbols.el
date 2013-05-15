@@ -26,3 +26,10 @@
                      (0 (progn (compose-region (- (match-end 1) 1)
                                                (match-end 1) "ₒ")
                                nil))))))
+
+(eval-after-load 'clojure-mode
+  '(font-lock-add-keywords
+    'clojure-mode `(("(\\(Exception.\\)[\[[:space:]]"
+                     (0 (progn (compose-region (match-beginning 1)
+                                               (match-end 1) "⚡")
+                               nil))))))
