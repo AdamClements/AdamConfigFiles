@@ -10,12 +10,13 @@ hgrep (){ find ~/.dir_bash_history/ -type f|xargs grep -h $*;}
 shopt -s histappend
 alias cd="mycd"
 export HISTFILE="$HOME/.dir_bash_history$PWD/bash_history.txt"
+export HISTCONTROL=ignoredups
 history -r
 
 function mycd()
 {
     history -w # write current history file
-    builtin cd "$@" # do actual c d
+    builtin cd "$@" && ls --color=auto # do actual c d and list teh new contents
     local HISTDIR="$HOME/.dir_bash_history$PWD" # use& nbsp;nested folders for history
     if [ ! -d "$HISTDIR" ]; then # create folder if neede d
         mkdir -p "$HISTDIR"
@@ -40,5 +41,5 @@ alias l='ls'
 alias la='ls -lah'
 alias emacs='emacs -nw'
 alias du='du -h --max-depth=1'
-alias google='google -C'
-PS1='\[\033[G\]\[\e[1;34m\]<\w> \[\e[0m\]'
+#PS1='\[\033[G\]\[\e[1;34m\]<\w> \[\e[0m\]'
+PS1='\[\e[1;34m\]<\w> \[\e[0m\]'
