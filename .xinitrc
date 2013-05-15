@@ -48,6 +48,8 @@ xbindkeys &
 if [ -f /home/adam/.Xmodmap ]
 then
     xmodmap /home/adam/.Xmodmap
+else
+    setxkbmap dvorak
 fi
 
 # Tell everything that we're running looking glass 3d, in the hope that java will play nice
