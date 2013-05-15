@@ -4,6 +4,7 @@ require("awful.rules")
 require("beautiful")
 require("naughty")
 require("eminent")
+require("callbackprompt")
 
 require("errorhandling")
 require("util")
@@ -47,7 +48,7 @@ mytasklist = {}
 mytasklist.buttons = awful.util.table.join(awful.button({ }, 1, toggle_minimized))
 
 for s = 1, screen.count() do
-    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
+    mypromptbox[s] = callbackprompt({ layout = awful.widget.layout.horizontal.leftright })
     mytaglist[s]   = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
     mytasklist[s]  = awful.widget.tasklist(function (c)
                                               return awful.widget.tasklist.label.currenttags(c, s)
@@ -98,10 +99,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey            }, "r",
               function ()
                  mywibox[mouse.screen].visible = true
-                 mytimer = timer({ timeout = 10 })
-                 mytimer:add_signal("timeout", function() mywibox[mouse.screen].visible = false end)
-                 mytimer:start()
-                 mypromptbox[mouse.screen]:run()
+                 local hidewibox = function() mywibox[mouse.screen].visible = false end
+                 mypromptbox[mouse.screen]:run(hidewibox)
               end),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart),
