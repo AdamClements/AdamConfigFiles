@@ -15,7 +15,7 @@
 ;;; Info about at which point I would like the screen to split
 ;;; vertically vs horizontally
 (setq split-height-threshold nil)
-(setq split-width-threshold 160)
+(setq split-width-threshold 180)
 
 ;;; Open links in chrome
 (setq browse-url-browser-function 'browse-url-generic
