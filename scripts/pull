@@ -1,9 +1,15 @@
 #!/bin/bash
 case $1 in
 my)
-        git clone git@github.com:AdamClements/$2.git
+        export REPO=AdamClements
+        shift
         ;;
 *)
-        git clone git@github.com:TouchType/$1.git
+        export REPO=TouchType
         ;;
 esac
+
+PROJECT=$1
+shift
+
+git clone git@github.com:$REPO/$PROJECT.git "$@"
