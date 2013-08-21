@@ -51,3 +51,6 @@
 
 ;;; Set a more interesting error underline for nrepl
 (set-face-attribute 'nrepl-error-highlight-face nil :inherit nil :underline '(:color "red4" :style wave))
+
+;;; Make M-SPC multiline by default
+(global-set-key (kbd "M-SPC") (lambda () (interactive) (just-one-space -1)))
