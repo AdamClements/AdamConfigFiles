@@ -36,7 +36,7 @@ export SDL_VIDEO_FULLSCREEN_HEAD=0
 xflux -l 51.5 -g -0.1 &
 
 # Transparent windows and such
-xcompmgr -cf&
+unagi &
 
 # Turn off the annoying terminal beep
 xset -b
