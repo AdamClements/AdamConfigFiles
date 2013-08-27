@@ -54,3 +54,5 @@
 
 ;;; Make M-SPC multiline by default
 (global-set-key (kbd "M-SPC") (lambda () (interactive) (just-one-space -1)))
+
+(setq default-tab-width 4)
