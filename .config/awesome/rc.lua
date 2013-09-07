@@ -12,7 +12,7 @@ require("util")
 -- Theme
 beautiful.init("/home/adam/.config/awesome/themes/thinnest/theme.lua")
 
-terminal = "terminology"
+terminal = "urxvt"
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
