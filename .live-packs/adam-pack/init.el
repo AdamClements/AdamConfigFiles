@@ -37,6 +37,10 @@
          (set-variable 'nrepl-server-command
                        "lein with-profile dev repl")))
 
+;;; Show full stack traces in the repl
+(setq nrepl-popup-stacktraces nil)
+(setq nrepl-popup-stacktraces-in-repl t)
+
 ;;; Add in extra repositories/packages
 (require 'package)
 (setq package-archives

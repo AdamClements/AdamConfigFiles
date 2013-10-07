@@ -44,6 +44,9 @@ xset -b
 # Load in some key binding settings (for volume control etc)
 xbindkeys &
 
+# This should sync clipboards between gnome and X
+autocutsel -selection PRIMARY -fork &
+
 # Load my custom keyboard layout (if it exists)
 if [ -f /home/adam/.Xmodmap ]
 then
