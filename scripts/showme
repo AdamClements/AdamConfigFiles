@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -name *$1* | xargs src-hilite-lesspipe.sh | less -R
