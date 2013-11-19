@@ -44,10 +44,11 @@
 ;;; Add in extra repositories/packages
 (require 'package)
 (setq package-archives
-             '(("melpa" . "http://melpa.milkbox.net/packages/")))
+      '(("melpa" . "http://melpa.milkbox.net/packages/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
-(defvar my-packages '(latest-clojars))
+(defvar my-packages '(latest-clojure-libraries))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -60,3 +61,4 @@
 (global-set-key (kbd "M-SPC") (lambda () (interactive) (just-one-space -1)))
 
 (setq default-tab-width 4)
+(setq-default indent-tabs-mode nil)
