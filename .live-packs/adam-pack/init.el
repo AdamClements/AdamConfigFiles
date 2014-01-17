@@ -31,6 +31,9 @@
 (setq same-window-buffer-names
       (delete "*nrepl*" same-window-buffer-names))
 
+;;; Set the file to save repl history
+(setq nrepl-history-file "~/.emacs.d/.nrepl-history")
+
 ;;; Nrepl jack in with the dev profile by default
 (add-hook 'nrepl-mode-hook
       '(lambda ()
