@@ -11,6 +11,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
+# Run some laptoppy things
+batterymon&
+nm-applet&
+
 # Make sure that the background is solid black, probably unnecessary
 hsetroot -solid "#000000"
 
@@ -22,7 +26,7 @@ case $(uname -n) in
         ;;
     *)
         # Simple picture by default
-        feh --bg-scale --no-xinerama /home/adam/.config/awesome/themes/bamboo/background.jpg
+        feh --bg-fill /home/adam/downloads/adamandeve\ 368.jpg
         ;;
 esac
 
@@ -44,6 +48,9 @@ xset -b
 # Load in some key binding settings (for volume control etc)
 xbindkeys &
 
+# Policykit for password storage
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # This should sync clipboards between gnome and X
 autocutsel -selection PRIMARY -fork &
 
@@ -54,6 +61,7 @@ then
 else
     setxkbmap dvorak
 fi
+
 
 # Tell everything that we're running looking glass 3d, in the hope that java will play nice
 wmname LG3D
