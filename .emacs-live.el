@@ -21,4 +21,4 @@
 
 (setq live-disable-zone t)
 
-(live-add-packs '(~/.live-packs/adam-pack))
+;(live-add-packs '(~/.live-packs/adam-pack))

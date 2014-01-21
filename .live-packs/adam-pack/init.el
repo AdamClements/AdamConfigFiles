@@ -1,5 +1,23 @@
 (live-load-config-file "bindings.el")
 (load "clojure")
+(load "imprint")
+
+;;; Add in extra repositories/packages
+(require 'package)
+(setq package-archives
+      '(("melpa" . "http://melpa.milkbox.net/packages/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")))
+(package-initialize)
+
+(defvar my-packages '(latest-clojure-libraries
+		      ;multiple-cursors
+		      ;git-gutter
+		      ))
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
 
 ;;; Sloppy focus
 (setq mouse-autoselect-window t)
@@ -8,9 +26,9 @@
 (global-set-key "\C-m" 'newline-and-indent)
 
 ;;; Multiple point editing FTW!
-(require 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;(require 'multiple-cursors)
+;(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 
 ;;; Info about at which point I would like the screen to split
 ;;; vertically vs horizontally
@@ -44,6 +62,7 @@
 (setq nrepl-popup-stacktraces nil)
 (setq nrepl-popup-stacktraces-in-repl t)
 
+<<<<<<< Updated upstream
 ;;; Add in extra repositories/packages
 (require 'package)
 (setq package-archives
@@ -58,6 +77,8 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+=======
+>>>>>>> Stashed changes
 ;;; Set a more interesting error underline for nrepl
 (set-face-attribute 'nrepl-error-highlight-face nil :inherit nil :underline '(:color "red4" :style wave))
 

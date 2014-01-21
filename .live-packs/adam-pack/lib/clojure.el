@@ -13,4 +13,4 @@
         (clojure-fill-docstring)
         (paredit-reindent-defun))))
 
-(define-key clojure-mode-map (kbd "C-q") 'custom-clojure-reindent)
+;(define-key clojure-mode-map (kbd "C-q") 'custom-clojure-reindent)
