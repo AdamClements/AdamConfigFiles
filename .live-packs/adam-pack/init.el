@@ -31,6 +31,9 @@
 (setq same-window-buffer-names
       (delete "*nrepl*" same-window-buffer-names))
 
+;;; Set the file to save repl history
+(setq nrepl-history-file "~/.emacs.d/.nrepl-history")
+
 ;;; Nrepl jack in with the dev profile by default
 (add-hook 'nrepl-mode-hook
       '(lambda ()
@@ -48,7 +51,8 @@
         ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
-(defvar my-packages '(latest-clojure-libraries))
+(defvar my-packages '(latest-clojure-libraries
+                      clj-refactor))
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -59,6 +63,12 @@
 
 ;;; Make M-SPC multiline by default
 (global-set-key (kbd "M-SPC") (lambda () (interactive) (just-one-space -1)))
+
+(require 'clj-refactor)
+(add-hook 'clojure-mode-hook
+          (lambda ()
+             (clj-refactor-mode 1)
+             (cljr-add-keybindings-with-prefix "C-c r")))
 
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
