@@ -12,7 +12,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 # Run some laptoppy things
-batterymon&
+batti&
 nm-applet&
 
 # Make sure that the background is solid black, probably unnecessary
