@@ -26,6 +26,15 @@ function mycd()
     history -r #read from current histfile
 }
 
+beep_if_long_time_past() {
+    LAST_COMMAND_DURATION=$(($(date +%s) - ${LAST_COMMAND_TIME}))
+    [[ ${LAST_COMMAND_DURATION} -gt 20 ]] && { notify-send "I'm done after ${LAST_COMMAND_DURATION} seconds!"; }
+    export LAST_COMMAND_TIME=
+}
+
+export PROMPT_COMMAND=beep_if_long_time_past
+trap '[ -z ${LAST_COMMAND_TIME} ] && export LAST_COMMAND_TIME=$(date +%s)' DEBUG
+
 export PATH=$PATH:/home/adam/scripts
 export _JAVA_AWT_WM_NONREPARENTING=1
 
@@ -52,4 +61,4 @@ alias ........='cd ../../../../../../..'
 alias packer='packer --noconfirm'
 alias duh='du --max-depth 1 2>/dev/null'
 #PS1='\[\033[G\]\[\e[1;34m\]<\w> \[\e[0m\]'
-PS1='\[\e[1;34m\]<\w> \[\e[0m\]'
+PS1='\[\e[1;30m\]\A \[\e[1;34m\]<\w> \[\e[0m\]'
